@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private float horzInput;
     private float speed = 10f;
     private float Xrange = 10f;
+    public GameObject ProjectilePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,11 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x > Xrange)
         {
             transform.position = new Vector3(Xrange, transform.position.y, transform.position.z);
+        }
+        //Spawn Food
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(ProjectilePrefab, transform.position, ProjectilePrefab.transform.rotation);
         }
     }
 }
